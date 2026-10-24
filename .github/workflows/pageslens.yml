@@ -1,0 +1,19 @@
+name: pageslens
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+  security-events: write # upload results to code scanning
+  pull-requests: write # the access-changes comment
+jobs:
+  pageslens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the merge base needs the history of both branches
+      - uses: OOlashyn/pageslens@v0.5.0
+        with:
+          path: site

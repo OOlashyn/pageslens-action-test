@@ -1,0 +1,3 @@
+access:
+  - anonymous cannot create, write, delete any table
+  - authenticated cannot write contact at global scope
